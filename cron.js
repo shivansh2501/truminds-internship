@@ -6,7 +6,7 @@ const sql = require('mysql');
 const con = sql.createConnection( {
     host: "localhost",
     user: "postgres",
-    password: 'Success!2001'
+    password: 'password'
 });
 
 app = express();
@@ -28,4 +28,4 @@ cron.schedule("*/10 * * * *", function() {
 
 });
 
-app.listen(3000);
+app.listen(3306);
