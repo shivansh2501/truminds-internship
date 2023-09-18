@@ -3,6 +3,8 @@ const express = require('express');
 const fs = require('fs');
 require('./index.js')
 
+require('./create_table.js');
+
 app = express();
 
 cron.schedule("*/10 * * * *", function() {
