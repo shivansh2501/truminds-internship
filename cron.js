@@ -1,20 +1,9 @@
 const cron = require('node-cron');
 const express = require('express');
 const fs = require('fs');
-const sql = require('mysql');
-
-const con = sql.createConnection( {
-    host: "127.0.0.1",
-    user: "postgres",
-    password: 'postgres'
-});
+require('./index.js')
 
 app = express();
-
-con.connect(err => {
-    if (err) throw err;
-    console.log("Connected!");
-})
 
 cron.schedule("*/10 * * * *", function() {
     
@@ -28,4 +17,10 @@ cron.schedule("*/10 * * * *", function() {
 
 });
 
-app.listen(3000);
+app.get('/', function(req,res) {
+    res.send('Hello World');
+})
+
+app.listen(3000, () => {
+    console.log("App will run on server 3000!");
+});
